@@ -1,0 +1,30 @@
+{
+  "name": "@getahoy/protocol",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Zod schemas for every message between phone, agent and web",
+  "repository": "github:getahoy/shared",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "tsdown": "^0.23.1",
+    "typescript": "^7.0.2",
+    "zod": "^4.6.7"
+  },
+  "peerDependencies": {
+    "zod": "^4.6.7"
+  }
+}

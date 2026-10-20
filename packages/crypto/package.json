@@ -1,0 +1,33 @@
+{
+  "name": "@getahoy/crypto",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Pairing key derivation and encrypted frames, identical on React Native and Node",
+  "repository": "github:getahoy/shared",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/libsodium-wrappers": "0.8.2",
+    "libsodium-wrappers": "0.8.4",
+    "tsdown": "^0.23.1",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@noble/ciphers": "2.4.0",
+    "@noble/curves": "2.4.0",
+    "@noble/hashes": "2.4.0"
+  }
+}
