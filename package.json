@@ -8,14 +8,6 @@
     "lint": "biome ci --error-on-warnings .",
     "test": "vitest run"
   },
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "12.14.0",
-      "onFail": "download"
-    }
-  },
-  "packageManager": "pnpm@12.14.0",
   "type": "module",
   "devDependencies": {
     "@biomejs/biome": "2.5.15",
