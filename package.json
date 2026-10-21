@@ -2,17 +2,13 @@
   "name": "@getahoy/shared-workspace",
   "private": true,
   "scripts": {
-    "prepare": "git config core.hooksPath .githooks || true",
     "build": "pnpm -r build",
     "typecheck": "pnpm -r typecheck",
-    "lint": "biome ci --error-on-warnings .",
-    "test": "vitest run",
-    "check:graph": "node scripts/checkPackageGraph.mjs"
+    "lint": "biome ci --error-on-warnings ."
   },
   "type": "module",
   "devDependencies": {
     "@biomejs/biome": "2.5.15",
-    "typescript": "7.0.2",
-    "vitest": "5.0.5"
+    "typescript": "7.0.2"
   }
 }
