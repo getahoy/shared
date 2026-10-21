@@ -9,13 +9,15 @@
   },
   "exports": {
     ".": "./dist/index.mjs",
+    "./tailwind.css": "./dist/tailwind.css",
+    "./uniwind.css": "./dist/uniwind.css",
     "./package.json": "./package.json"
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsdown",
+    "build": "tsdown && node scripts/writeCss.mjs",
     "dev": "tsdown --watch",
     "typecheck": "tsc --noEmit"
   },
