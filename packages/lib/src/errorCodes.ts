@@ -17,10 +17,10 @@ export type ErrorCode = (typeof errorCodes)[number];
 
 export const errorMessages: Record<ErrorCode, string> = {
   invalid_input: "Check the details and try again.",
-  unauthorized: "Email or password is incorrect.",
+  unauthorized: "Sign in to continue.",
   forbidden: "You do not have access to this.",
   not_found: "We could not find that.",
-  conflict: "An account with this email already exists.",
+  conflict: "That already exists.",
   rate_limited: "Too many attempts. Wait a moment and try again.",
   device_revoked: "This device was removed from your account.",
   protocol_version_mismatch: "Update the app to continue.",

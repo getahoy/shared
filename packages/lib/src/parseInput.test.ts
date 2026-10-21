@@ -1,25 +1,27 @@
 import { describe, expect, it } from "vitest";
-import { signInSchema, signUpSchema } from "./credentialsSchema";
+import { z } from "zod";
 import { parseInput } from "./parseInput";
 
+const deviceNameSchema = z.object({
+  name: z.string().trim().min(1, "Enter a name"),
+});
+
 describe("parseInput", () => {
-  it("returns typed input for a valid sign in", () => {
-    const values = { email: "ada@example.com", password: "secret" };
-    expect(parseInput(signInSchema, values)).toEqual({ outcome: "valid", input: values });
-  });
-
-  it("returns the first issue message for an invalid email", () => {
-    expect(parseInput(signInSchema, { email: "nope", password: "x" })).toEqual({
-      outcome: "invalid",
-      message: "Enter a valid email address",
+  it("returns typed input when the schema passes", () => {
+    expect(parseInput(deviceNameSchema, { name: " Laptop " })).toEqual({
+      outcome: "valid",
+      input: { name: "Laptop" },
     });
   });
 
-  it("rejects a sign up password shorter than the minimum", () => {
-    const values = { name: "Ada", email: "ada@example.com", password: "short" };
-    expect(parseInput(signUpSchema, values)).toEqual({
+  it("returns the first issue message when the schema fails", () => {
+    expect(parseInput(deviceNameSchema, { name: "  " })).toEqual({
       outcome: "invalid",
-      message: "Use at least 8 characters",
+      message: "Enter a name",
     });
+  });
+
+  it("treats a missing field as invalid, not a crash", () => {
+    expect(parseInput(deviceNameSchema, {}).outcome).toBe("invalid");
   });
 });

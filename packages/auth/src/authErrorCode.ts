@@ -1,4 +1,4 @@
-import type { ErrorCode } from "./errorCodes";
+import type { ErrorCode } from "@getahoy/lib";
 
 export type AuthError = {
   code?: string | undefined;

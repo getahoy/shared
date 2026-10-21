@@ -1,8 +1,8 @@
 import { useState, useTransition } from "react";
 import { type AuthError, toErrorCode } from "./authErrorCode";
-import { errorMessages } from "./errorCodes";
+import { authErrorMessage } from "./authErrorMessage";
 
-type AuthResponse = { error: AuthError | null };
+export type AuthResponse = { error: AuthError | null };
 
 export type AuthRequest = () => Promise<AuthResponse>;
 
@@ -24,7 +24,7 @@ export function useAuthRequest() {
     startTransition(async () => {
       setErrorMessage(null);
       const { error } = await runSafely(request);
-      if (error) return setErrorMessage(errorMessages[toErrorCode(error)]);
+      if (error) return setErrorMessage(authErrorMessage(toErrorCode(error)));
       onSuccess?.();
     });
 
