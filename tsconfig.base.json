@@ -3,7 +3,7 @@
     "module": "preserve",
     "moduleResolution": "bundler",
     "target": "esnext",
-    "lib": ["esnext", "dom"],
+    "lib": ["esnext"],
     "types": [],
     "strict": true,
     "noUncheckedIndexedAccess": true,
