@@ -1,6 +1,6 @@
 import type { z } from "zod";
 
-const FALLBACK_MESSAGE = "Check the form and try again";
+const FALLBACK_MESSAGE = "Check the form and try again.";
 
 export type ParsedInput<T> =
   | { outcome: "valid"; input: T }

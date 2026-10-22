@@ -2,7 +2,7 @@
   "name": "@getahoy/lib",
   "type": "module",
   "version": "0.2.0",
-  "description": "Generic building blocks: error codes and input parsing",
+  "description": "Error codes, input parsing, app scheme and auth logic shared by web and mobile",
   "repository": "github:getahoy/shared",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
