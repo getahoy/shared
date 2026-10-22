@@ -11,6 +11,7 @@ export const authCopy = {
   "signOut.submit": "Sign out",
   "signOut.pending": "Signing out…",
   "form.pending": "Please wait…",
+  "action.retry": "Try again",
   "field.name": "Name",
   "field.email": "Email",
   "field.password": "Password",
