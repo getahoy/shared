@@ -5,9 +5,8 @@ export type AuthResponse = { error: AuthError | null };
 
 const NETWORK_FAILURE: AuthResponse = { error: { status: 0 } };
 
-function networkFailureOnly(error: unknown): AuthResponse {
-  if (error instanceof TypeError) return NETWORK_FAILURE;
-  throw error;
+function networkFailure(): AuthResponse {
+  return NETWORK_FAILURE;
 }
 
 export function useAuthRequest() {
@@ -17,10 +16,12 @@ export function useAuthRequest() {
   const submit = (request: () => Promise<AuthResponse>, onSuccess?: () => void) =>
     startTransition(async () => {
       setErrorMessage(null);
-      const { error } = await request().catch(networkFailureOnly);
+      const { error } = await request().catch(networkFailure);
       if (error) return setErrorMessage(authErrorMessage(error));
       onSuccess?.();
     });
 
   return { pending, errorMessage, submit, showError: setErrorMessage };
 }
+
+export type AuthRequestState = ReturnType<typeof useAuthRequest>;

@@ -12,7 +12,11 @@ export {
 } from "./auth/credentialsSchema";
 export { socialErrorMessage } from "./auth/socialErrorMessage";
 export { type SocialProviderId, socialProviderCatalog } from "./auth/socialProviderCatalog";
-export { type AuthResponse, useAuthRequest } from "./auth/useAuthRequest";
+export {
+  type AuthRequestState,
+  type AuthResponse,
+  useAuthRequest,
+} from "./auth/useAuthRequest";
 export { useCredentialsForm } from "./auth/useCredentialsForm";
 export { type ErrorCode, errorMessages } from "./errorCodes";
 export { type ParsedInput, parseInput } from "./parseInput";
