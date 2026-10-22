@@ -1,6 +1,7 @@
 export { APP_SCHEME } from "./appScheme";
 export { authCopy } from "./auth/authCopy";
 export { type AuthError, authErrorMessage } from "./auth/authErrorMessage";
+export { credentialFields } from "./auth/credentialFields";
 export {
   MAXIMUM_PASSWORD_LENGTH,
   MINIMUM_PASSWORD_LENGTH,
