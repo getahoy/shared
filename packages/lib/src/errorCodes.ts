@@ -1,4 +1,4 @@
-const errorCodes = [
+export const errorCodes = [
   "invalid_input",
   "unauthorized",
   "forbidden",

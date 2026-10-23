@@ -1,3 +1,6 @@
+export { REQUEST_ID_HEADER } from "./api/apiEnvelope";
+export { ErrorResponse, SuccessResponse } from "./api/apiResponse";
+export { type RequestError, request, requestErrorMessage } from "./api/request";
 export { APP_SCHEME } from "./appScheme";
 export { authCopy } from "./auth/authCopy";
 export { type AuthError, authErrorMessage } from "./auth/authErrorMessage";
@@ -19,4 +22,5 @@ export {
 } from "./auth/useAuthRequest";
 export { useCredentialsForm } from "./auth/useCredentialsForm";
 export { type ErrorCode, errorMessages } from "./errorCodes";
+export { createLogger, type Logger } from "./logging/logger";
 export { type ParsedInput, parseInput } from "./parseInput";
