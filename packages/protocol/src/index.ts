@@ -21,9 +21,13 @@ export {
   type PairingClaimRequest,
   type PairingComplete,
   type PairingCompleteRequest,
+  type PairingUnlink,
+  type PairingUnlinkRequest,
   pairingClaimRequestSchema,
   pairingClaimSchema,
   pairingCompleteRequestSchema,
   pairingCompleteSchema,
+  pairingUnlinkRequestSchema,
+  pairingUnlinkSchema,
 } from "./pairingApi";
 export { type PairingQr, pairingQrSchema } from "./pairingQr";

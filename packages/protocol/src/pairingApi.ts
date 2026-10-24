@@ -25,7 +25,16 @@ export const pairingCompleteSchema = z.object({
   proof: bytes32Schema,
 });
 
+export const pairingUnlinkRequestSchema = z.object({
+  devicePublicKey: bytes32Schema,
+  peerPublicKey: bytes32Schema,
+});
+
+export const pairingUnlinkSchema = z.object({ unlinked: z.literal(true) });
+
 export type PairingClaimRequest = z.infer<typeof pairingClaimRequestSchema>;
+export type PairingUnlinkRequest = z.infer<typeof pairingUnlinkRequestSchema>;
+export type PairingUnlink = z.infer<typeof pairingUnlinkSchema>;
 export type PairingClaim = z.infer<typeof pairingClaimSchema>;
 export type PairingCompleteRequest = z.infer<typeof pairingCompleteRequestSchema>;
 export type PairingComplete = z.infer<typeof pairingCompleteSchema>;
