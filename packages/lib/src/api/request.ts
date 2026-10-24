@@ -9,9 +9,7 @@ export type RequestError =
   | { kind: "malformed"; status: number; requestId: string | null }
   | { kind: "network" };
 
-type RequestResult<T> =
-  | { code: "success"; data: T }
-  | { code: "error"; error: RequestError };
+type RequestResult<T> = { code: "success"; data: T } | { code: "error"; error: RequestError };
 
 type RequestOptions<T> = {
   url: string;
