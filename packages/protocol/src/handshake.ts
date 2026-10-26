@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { audioFrameSchemas } from "./audio";
 import { deviceDescriptionSchema } from "./device";
 
 export const versionProbeSchema = z.object({ protocolVersion: z.int().positive() });
@@ -42,6 +43,7 @@ export const frameSchema = z.discriminatedUnion("type", [
   z.object({ type: z.literal("status"), locked: z.boolean() }),
   z.object({ type: z.literal("ping") }),
   z.object({ type: z.literal("pong") }),
+  ...audioFrameSchemas,
 ]);
 
 export type Hello = z.infer<typeof helloSchema>;
