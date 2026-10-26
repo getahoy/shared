@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { bytes32Schema, deviceDescriptionSchema } from "./device";
+import { endReasonSchema } from "./handshake";
 import { pairingCodeSchema } from "./pairingQr";
 
 export const DESKTOP_CLIENT_ID = "ahoy-desktop";
@@ -28,9 +29,22 @@ export const pairingCompleteSchema = z.object({
 export const pairingUnlinkRequestSchema = z.object({
   devicePublicKey: bytes32Schema,
   peerPublicKey: bytes32Schema,
+  reason: endReasonSchema.exclude(["replaced"]),
 });
 
 export const pairingUnlinkSchema = z.object({ unlinked: z.literal(true) });
+
+export const pairingLinksSchema = z.object({
+  links: z.array(
+    z.object({
+      peerPublicKey: bytes32Schema,
+      active: z.boolean(),
+      reason: endReasonSchema.nullable(),
+    }),
+  ),
+});
+
+export type PairingLinks = z.infer<typeof pairingLinksSchema>;
 
 export type PairingClaimRequest = z.infer<typeof pairingClaimRequestSchema>;
 export type PairingUnlinkRequest = z.infer<typeof pairingUnlinkRequestSchema>;

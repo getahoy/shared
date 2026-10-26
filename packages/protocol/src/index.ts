@@ -7,12 +7,17 @@ export {
   platformSchema,
 } from "./device";
 export {
+  END_REASONS,
+  type EndReason,
+  endReasonSchema,
   type Frame,
   frameSchema,
+  type GoodbyeReason,
   type HandshakeReply,
   type Hello,
   handshakeReplySchema,
   helloSchema,
+  unknownMacKeySchema,
   versionProbeSchema,
 } from "./handshake";
 export {
@@ -21,12 +26,14 @@ export {
   type PairingClaimRequest,
   type PairingComplete,
   type PairingCompleteRequest,
+  type PairingLinks,
   type PairingUnlink,
   type PairingUnlinkRequest,
   pairingClaimRequestSchema,
   pairingClaimSchema,
   pairingCompleteRequestSchema,
   pairingCompleteSchema,
+  pairingLinksSchema,
   pairingUnlinkRequestSchema,
   pairingUnlinkSchema,
 } from "./pairingApi";
