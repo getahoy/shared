@@ -12,6 +12,13 @@ export {
   SPEECH_SAMPLE_RATE,
 } from "./audio";
 export {
+  COMMAND_STATUSES,
+  type CommandFrame,
+  type CommandStatus,
+  MAX_COMMAND_TEXT_CHARS,
+  MAX_RESULT_MESSAGE_CHARS,
+} from "./command";
+export {
   bytes32Schema,
   type DeviceDescription,
   PLATFORMS,
