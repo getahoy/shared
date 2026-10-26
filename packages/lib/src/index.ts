@@ -1,6 +1,11 @@
 export { REQUEST_ID_HEADER } from "./api/apiEnvelope";
 export { ErrorResponse, SuccessResponse } from "./api/apiResponse";
-export { type RequestError, request, requestErrorMessage } from "./api/request";
+export {
+  type RequestError,
+  type RequestResult,
+  request,
+  requestErrorMessage,
+} from "./api/request";
 export { APP_SCHEME } from "./appScheme";
 export { authCopy } from "./auth/authCopy";
 export { type AuthError, authErrorMessage } from "./auth/authErrorMessage";
