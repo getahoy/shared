@@ -28,6 +28,26 @@ export {
   versionProbeSchema,
 } from "./handshake";
 export {
+  CHARACTER_KEYS,
+  EMAIL_APPS,
+  type EmailApp,
+  type InterpretAction,
+  type InterpretRequest,
+  type InterpretResponse,
+  interpretActionSchema,
+  interpretRequestSchema,
+  interpretResponseSchema,
+  KEY_MODIFIERS,
+  type KeyModifier,
+  type KeyName,
+  MAX_EMAIL_BODY_CHARS,
+  MAX_EMAIL_SUBJECT_CHARS,
+  MAX_INTERPRET_ACTIONS,
+  MAX_INTERPRET_APPS,
+  MAX_TYPED_CHARS,
+  NAMED_KEYS,
+} from "./interpretApi";
+export {
   DESKTOP_CLIENT_ID,
   type PairingClaim,
   type PairingClaimRequest,
