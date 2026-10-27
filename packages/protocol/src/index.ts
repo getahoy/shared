@@ -45,3 +45,9 @@ export {
   pairingUnlinkSchema,
 } from "./pairingApi";
 export { type PairingQr, pairingQrSchema } from "./pairingQr";
+export {
+  AUDIO_UPLOAD_FIELD,
+  MAX_AUDIO_UPLOAD_BYTES,
+  type TranscribeResponse,
+  transcribeResponseSchema,
+} from "./speechApi";

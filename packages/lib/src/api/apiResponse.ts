@@ -9,6 +9,7 @@ const errorStatus: Record<ErrorCode, number> = {
   blocked: 403,
   not_found: 404,
   conflict: 409,
+  nothing_heard: 422,
   protocol_version_mismatch: 426,
   rate_limited: 429,
   internal: 500,

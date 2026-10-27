@@ -18,21 +18,27 @@ type RequestOptions<T> = {
   schema: z.ZodType<T>;
   method?: "GET" | "POST" | "PATCH" | "DELETE";
   body?: unknown;
+  form?: FormData;
   headers?: Record<string, string>;
   timeoutMs?: number;
+  fetch?: typeof fetch;
 };
+
+const JSON_HEADERS = { accept: "application/json", "content-type": "application/json" };
 
 async function send<T>(options: RequestOptions<T>): Promise<Response | null> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), options.timeoutMs ?? DEFAULT_TIMEOUT_MS);
+  const contentHeaders = options.form ? { accept: "application/json" } : JSON_HEADERS;
   const init: RequestInit = {
     method: options.method ?? "GET",
-    headers: { accept: "application/json", "content-type": "application/json", ...options.headers },
+    headers: { ...contentHeaders, ...options.headers },
     signal: controller.signal,
   };
-  if (options.body !== undefined) init.body = JSON.stringify(options.body);
+  if (options.form) init.body = options.form;
+  else if (options.body !== undefined) init.body = JSON.stringify(options.body);
   try {
-    return await fetch(options.url, init);
+    return await (options.fetch ?? fetch)(options.url, init);
   } catch {
     return null;
   } finally {

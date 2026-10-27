@@ -11,6 +11,7 @@ export const errorCodes = [
   "transient",
   "broken",
   "internal",
+  "nothing_heard",
 ] as const;
 
 export type ErrorCode = (typeof errorCodes)[number];
@@ -28,4 +29,5 @@ export const errorMessages: Record<ErrorCode, string> = {
   transient: "Could not reach the server. Check your connection and try again.",
   broken: "Something is wrong on our side. Try again later.",
   internal: "Something went wrong. Try again.",
+  nothing_heard: "Didn’t catch that.",
 };
