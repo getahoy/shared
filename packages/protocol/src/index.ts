@@ -1,17 +1,4 @@
 export {
-  AUDIO_FORMATS,
-  type AudioFormat,
-  type AudioFrame,
-  type AudioRejectReason,
-  MAX_AUDIO_CHUNK_BYTES,
-  MAX_FRAME_BYTES,
-  MAX_RECORDING_MS,
-  PCM_BYTES_PER_SAMPLE,
-  pcmBytesFor,
-  pcmDurationMs,
-  SPEECH_SAMPLE_RATE,
-} from "./audio";
-export {
   COMMAND_STATUSES,
   type CommandFrame,
   type CommandStatus,

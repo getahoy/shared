@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { audioFrameSchemas } from "./audio";
 import { commandFrameSchemas } from "./command";
 import { deviceDescriptionSchema } from "./device";
 
@@ -44,7 +43,6 @@ export const frameSchema = z.discriminatedUnion("type", [
   z.object({ type: z.literal("status"), locked: z.boolean() }),
   z.object({ type: z.literal("ping") }),
   z.object({ type: z.literal("pong") }),
-  ...audioFrameSchemas,
   ...commandFrameSchemas,
 ]);
 
