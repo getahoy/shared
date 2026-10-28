@@ -10,6 +10,7 @@ const MAX_APP_NAME_CHARS = 100;
 const MAX_QUERY_CHARS = 200;
 const MAX_HOST_CHARS = 253;
 const MAX_TAB_MATCH_CHARS = 100;
+const MAX_CLICK_LABEL_CHARS = 100;
 const MAX_EMAIL_CHARS = 254;
 
 export const KEY_MODIFIERS = ["mod", "shift", "alt", "control"] as const;
@@ -125,6 +126,7 @@ export const interpretActionSchema = z.discriminatedUnion("kind", [
     modifiers: z.array(z.enum(KEY_MODIFIERS)).max(KEY_MODIFIERS.length),
   }),
   z.object({ kind: z.literal("type"), text: z.string().min(1).max(MAX_TYPED_CHARS) }),
+  z.object({ kind: z.literal("click"), label: z.string().min(1).max(MAX_CLICK_LABEL_CHARS) }),
   z.object({
     kind: z.literal("closeTab"),
     match: tabMatchSchema,
