@@ -1,7 +1,11 @@
 export {
+  CHOICE_TTL_MS,
   COMMAND_STATUSES,
+  type CommandChoice,
   type CommandFrame,
   type CommandStatus,
+  MAX_CHOICE_LABEL_CHARS,
+  MAX_CHOICES,
   MAX_COMMAND_TEXT_CHARS,
   MAX_RESULT_MESSAGE_CHARS,
 } from "./command";
