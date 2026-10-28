@@ -102,14 +102,23 @@ export const EMAIL_APPS = ["mail", "gmail"] as const;
 
 const appNameSchema = z.string().min(1).max(MAX_APP_NAME_CHARS);
 const tabMatchSchema = z.string().min(1).max(MAX_TAB_MATCH_CHARS);
+const browserSchema = appNameSchema.nullable();
 
 export const interpretActionSchema = z.discriminatedUnion("kind", [
   z.object({ kind: z.literal("open"), app: appNameSchema }),
   z.object({ kind: z.literal("quit"), app: appNameSchema }),
   z.object({ kind: z.literal("hide"), app: appNameSchema }),
   z.object({ kind: z.literal("switch"), app: appNameSchema }),
-  z.object({ kind: z.literal("search"), query: z.string().min(1).max(MAX_QUERY_CHARS) }),
-  z.object({ kind: z.literal("openSite"), host: z.string().min(1).max(MAX_HOST_CHARS) }),
+  z.object({
+    kind: z.literal("search"),
+    query: z.string().min(1).max(MAX_QUERY_CHARS),
+    browser: browserSchema,
+  }),
+  z.object({
+    kind: z.literal("openSite"),
+    host: z.string().min(1).max(MAX_HOST_CHARS),
+    browser: browserSchema,
+  }),
   z.object({
     kind: z.literal("keys"),
     key: z.enum([...NAMED_KEYS, ...CHARACTER_KEYS]),
@@ -119,12 +128,12 @@ export const interpretActionSchema = z.discriminatedUnion("kind", [
   z.object({
     kind: z.literal("closeTab"),
     match: tabMatchSchema,
-    browser: appNameSchema.nullable(),
+    browser: browserSchema,
   }),
   z.object({
     kind: z.literal("switchTab"),
     match: tabMatchSchema,
-    browser: appNameSchema.nullable(),
+    browser: browserSchema,
   }),
   z.object({
     kind: z.literal("draftEmail"),
@@ -132,6 +141,7 @@ export const interpretActionSchema = z.discriminatedUnion("kind", [
     subject: z.string().min(1).max(MAX_EMAIL_SUBJECT_CHARS),
     body: z.string().min(1).max(MAX_EMAIL_BODY_CHARS),
     via: z.enum(EMAIL_APPS),
+    browser: browserSchema,
   }),
 ]);
 
