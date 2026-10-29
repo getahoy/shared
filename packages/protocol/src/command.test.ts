@@ -17,12 +17,13 @@ const result = {
   message: "Clicked Save",
 };
 
-test("a command always says where its reply is spoken", () => {
+test("a command says where its reply is spoken, the phone when it does not", () => {
   const command = { type: "command", commandId: ROOT, text: "click save" };
   for (const speakOn of ["phone", "mac", "both", "off"]) {
     assert.equal(frames.safeParse({ ...command, speakOn }).success, true);
   }
-  assert.equal(frames.safeParse(command).success, false);
+  const stale = frames.safeParse(command);
+  assert.equal(stale.success && "speakOn" in stale.data && stale.data.speakOn, "phone");
   const elsewhere = { ...command, speakOn: "watch" };
   assert.equal(frames.safeParse(elsewhere).success, false);
 });

@@ -21,7 +21,7 @@ export const commandFrameSchemas = [
     type: z.literal("command"),
     commandId: commandIdSchema,
     text: z.string().min(1).max(MAX_COMMAND_TEXT_CHARS),
-    speakOn: z.enum(SPEAK_TARGETS),
+    speakOn: z.enum(SPEAK_TARGETS).default("phone"),
   }),
   z.object({ type: z.literal("command.received"), commandId: commandIdSchema }),
   z.object({
