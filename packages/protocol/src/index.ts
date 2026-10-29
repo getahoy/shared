@@ -8,6 +8,9 @@ export {
   MAX_CHOICES,
   MAX_COMMAND_TEXT_CHARS,
   MAX_RESULT_MESSAGE_CHARS,
+  MAX_SPEECH_CHARS,
+  SPEAK_TARGETS,
+  type SpeakTarget,
 } from "./command";
 export {
   bytes32Schema,
@@ -69,6 +72,13 @@ export {
   pairingUnlinkSchema,
 } from "./pairingApi";
 export { type PairingQr, pairingQrSchema } from "./pairingQr";
+export {
+  MAX_SPEAK_TEXT_CHARS,
+  SPEAK_VOICES,
+  type SpeakRequest,
+  type SpeakVoice,
+  speakRequestSchema,
+} from "./speakApi";
 export {
   AUDIO_UPLOAD_FIELD,
   MAX_AUDIO_UPLOAD_BYTES,
