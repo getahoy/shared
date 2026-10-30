@@ -8,5 +8,13 @@ export const speakRequestSchema = z.object({
   voice: z.enum(SPEAK_VOICES),
 });
 
+export const speakVoicesSchema = z.object({
+  voices: z.object({
+    default: z.string().nullable(),
+    india: z.string().nullable(),
+  }),
+});
+
 export type SpeakVoice = (typeof SPEAK_VOICES)[number];
 export type SpeakRequest = z.infer<typeof speakRequestSchema>;
+export type SpeakVoices = z.infer<typeof speakVoicesSchema>;

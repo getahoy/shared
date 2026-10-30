@@ -77,7 +77,9 @@ export {
   SPEAK_VOICES,
   type SpeakRequest,
   type SpeakVoice,
+  type SpeakVoices,
   speakRequestSchema,
+  speakVoicesSchema,
 } from "./speakApi";
 export {
   AUDIO_UPLOAD_FIELD,
