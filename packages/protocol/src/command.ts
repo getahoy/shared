@@ -11,7 +11,7 @@ export const SPEAK_TARGETS = ["phone", "mac", "both", "off"] as const;
 
 const commandIdSchema = z.uuid();
 
-const choiceSchema = z.object({
+export const choiceSchema = z.object({
   number: z.int().min(1).max(MAX_CHOICES),
   label: z.string().max(MAX_CHOICE_LABEL_CHARS),
 });
