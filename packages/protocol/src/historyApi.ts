@@ -1,9 +1,12 @@
 import { z } from "zod";
 import {
   choiceSchema,
+  FAILURE_REASONS,
+  MAX_APP_NAME_CHARS,
   MAX_CHOICES,
   MAX_COMMAND_TEXT_CHARS,
   MAX_RESULT_MESSAGE_CHARS,
+  UNDERSTOOD_BY,
 } from "./command.ts";
 import { bytes32Schema } from "./device.ts";
 
@@ -16,24 +19,9 @@ export const HISTORY_STATUSES = [
   "cancelled",
 ] as const;
 export const HISTORY_FILTERS = ["all", "done", "failed"] as const;
-export const UNDERSTOOD_BY = ["rules", "ai"] as const;
-export const FAILURE_REASONS = [
-  "macUnreachable",
-  "noAnswer",
-  "nothingHeard",
-  "transcribeFailed",
-  "unknownApp",
-  "nothingSelected",
-  "targetNotFound",
-  "blockedApp",
-  "screenChanged",
-  "offline",
-  "other",
-] as const;
 export const MAX_HISTORY_WRITES = 20;
 export const MAX_FOLLOW_UPS = 5;
 export const HISTORY_PAGE_SIZE = 30;
-export const MAX_APP_NAME_CHARS = 60;
 export const MAX_REPORT_NOTE_CHARS = 500;
 const MAX_MAC_NAME_CHARS = 64;
 const MAX_SEARCH_CHARS = 100;
@@ -116,7 +104,6 @@ export const problemReportRequestSchema = z.object({
 
 export const historyChangedSchema = z.object({ changed: z.literal(true) });
 
-export type FailureReason = (typeof FAILURE_REASONS)[number];
 export type HistoryEntry = z.infer<typeof historyEntrySchema>;
 export type HistoryFilter = (typeof HISTORY_FILTERS)[number];
 export type HistoryFollowUp = z.infer<typeof historyFollowUpSchema>;
@@ -126,4 +113,3 @@ export type HistorySettings = z.infer<typeof historySettingsSchema>;
 export type HistoryTimings = z.infer<typeof historyTimingsSchema>;
 export type HistoryWrite = z.infer<typeof historyWriteSchema>;
 export type HistoryWriteEntry = HistoryWrite["entries"][number];
-export type UnderstoodBy = (typeof UNDERSTOOD_BY)[number];

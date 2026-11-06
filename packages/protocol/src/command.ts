@@ -8,6 +8,21 @@ export const MAX_CHOICE_LABEL_CHARS = 80;
 export const CHOICE_TTL_MS = 20_000;
 export const COMMAND_STATUSES = ["done", "needsChoice", "refused", "failed"] as const;
 export const SPEAK_TARGETS = ["phone", "mac", "both", "off"] as const;
+export const UNDERSTOOD_BY = ["rules", "ai"] as const;
+export const FAILURE_REASONS = [
+  "macUnreachable",
+  "noAnswer",
+  "nothingHeard",
+  "transcribeFailed",
+  "unknownApp",
+  "nothingSelected",
+  "targetNotFound",
+  "blockedApp",
+  "screenChanged",
+  "offline",
+  "other",
+] as const;
+export const MAX_APP_NAME_CHARS = 60;
 
 const commandIdSchema = z.uuid();
 
@@ -33,6 +48,10 @@ export const commandFrameSchemas = [
     speech: z.string().min(1).max(MAX_SPEECH_CHARS).optional(),
     choices: z.array(choiceSchema).max(MAX_CHOICES).default([]),
     confirm: z.boolean().default(false),
+    app: z.string().max(MAX_APP_NAME_CHARS).optional(),
+    via: z.enum(UNDERSTOOD_BY).optional(),
+    onMacMs: z.int().min(0).optional(),
+    reason: z.enum(FAILURE_REASONS).optional(),
   }),
   z.object({
     type: z.literal("command.choose"),
@@ -48,3 +67,5 @@ export type CommandFrame = z.infer<(typeof commandFrameSchemas)[number]>;
 export type CommandStatus = (typeof COMMAND_STATUSES)[number];
 export type CommandChoice = z.infer<typeof choiceSchema>;
 export type SpeakTarget = (typeof SPEAK_TARGETS)[number];
+export type FailureReason = (typeof FAILURE_REASONS)[number];
+export type UnderstoodBy = (typeof UNDERSTOOD_BY)[number];
