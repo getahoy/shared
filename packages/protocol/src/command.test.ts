@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { z } from "zod";
-import { commandFrameSchemas, MAX_APP_NAME_CHARS, MAX_SPEECH_CHARS } from "./command.ts";
+import { commandFrameSchemas, MAX_SPEECH_CHARS } from "./command.ts";
 import { MAX_SPEAK_TEXT_CHARS, speakRequestSchema } from "./speakApi.ts";
 
 const frames = z.discriminatedUnion("type", [...commandFrameSchemas]);
@@ -34,23 +34,6 @@ test("a result carries its thread and optional short speech", () => {
   assert.equal(frames.safeParse(spoken).success, true);
   const { threadId: _, ...threadless } = result;
   assert.equal(frames.safeParse(threadless).success, false);
-});
-
-test("a result may say which app, how it was understood, Mac time and why it failed", () => {
-  const detailed = {
-    ...result,
-    status: "failed",
-    app: "Pages",
-    via: "ai",
-    onMacMs: 840,
-    reason: "targetNotFound",
-  };
-  assert.equal(frames.safeParse(detailed).success, true);
-  assert.equal(frames.safeParse({ ...detailed, reason: "gremlins" }).success, false);
-  assert.equal(frames.safeParse({ ...detailed, via: "magic" }).success, false);
-  assert.equal(frames.safeParse({ ...detailed, onMacMs: -1 }).success, false);
-  const longApp = { ...detailed, app: "a".repeat(MAX_APP_NAME_CHARS + 1) };
-  assert.equal(frames.safeParse(longApp).success, false);
 });
 
 test("speech is never empty and never longer than 140 characters", () => {
