@@ -93,7 +93,13 @@ export const historyQuerySchema = z.object({
 export const historyPageSchema = z.object({
   entries: z.array(historyEntrySchema),
   cursor: z.string().nullable(),
-  summary: z.object({ lastSevenDays: z.int().min(0), didntGoThrough: z.int().min(0) }).nullable(),
+  summary: z
+    .object({
+      lastSevenDays: z.int().min(0),
+      wentThrough: z.int().min(0).optional(),
+      didntGoThrough: z.int().min(0),
+    })
+    .nullable(),
 });
 
 export const historySettingsSchema = z.object({ keepHistory: z.boolean() });
