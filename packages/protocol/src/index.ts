@@ -102,6 +102,12 @@ export {
 } from "./interpretApi";
 export { decodeJson, encodeJson } from "./jsonBytes";
 export {
+  type LanEndpoint,
+  lanEndpointSchema,
+  localHostSchema,
+  MAX_LAN_HOSTS,
+} from "./lanEndpoint";
+export {
   DESKTOP_CLIENT_ID,
   type PairingClaim,
   type PairingClaimRequest,

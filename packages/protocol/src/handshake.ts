@@ -1,6 +1,7 @@
 import { z } from "zod";
-import { commandFrameSchemas } from "./command";
-import { deviceDescriptionSchema } from "./device";
+import { commandFrameSchemas } from "./command.ts";
+import { deviceDescriptionSchema } from "./device.ts";
+import { lanEndpointSchema } from "./lanEndpoint.ts";
 
 export const versionProbeSchema = z.object({ protocolVersion: z.int().positive() });
 
@@ -24,7 +25,11 @@ export const goodbyeReasonSchema = z.enum([
 ]);
 
 export const handshakeReplySchema = z.discriminatedUnion("type", [
-  z.object({ type: z.literal("welcome"), hello: helloSchema }),
+  z.object({
+    type: z.literal("welcome"),
+    hello: helloSchema,
+    lan: lanEndpointSchema.optional(),
+  }),
   z.object({
     type: z.literal("version_mismatch"),
     protocolVersion: z.int().positive(),
