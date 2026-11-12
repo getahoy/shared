@@ -84,6 +84,12 @@ export { useElapsedOver } from "./hooks/useElapsedOver.ts";
 export { spinnerTiming, useSpinnerVisible } from "./hooks/useSpinnerVisible.ts";
 export { createLogger, type Logger } from "./logging/logger.ts";
 export {
+  motionDurationMs,
+  motionEasing,
+  SLOW_AFTER_MS,
+  TOAST_MS,
+} from "./motion/motionTiming.ts";
+export {
   endedWhen,
   NOTICE_LIFETIME_MS,
   noticeAge,
