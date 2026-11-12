@@ -1,1 +1,0 @@
-export const HISTORY_SEARCH_DELAY_MS = 300;

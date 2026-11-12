@@ -71,16 +71,14 @@ export {
 } from "./historyApi";
 export {
   DID_NOT_GO_THROUGH,
+  HISTORY_RETENTION_DAYS,
+  HISTORY_SUMMARY_DAYS,
+  HISTORY_UNDO_WINDOW_MS,
   historyReasonOf,
   historyStatusOf,
   statusesShownBy,
   WENT_THROUGH,
 } from "./historyStatuses";
-export {
-  HISTORY_RETENTION_DAYS,
-  HISTORY_SUMMARY_DAYS,
-  HISTORY_UNDO_WINDOW_MS,
-} from "./historyWindows";
 export {
   CHARACTER_KEYS,
   EMAIL_APPS,

@@ -1,6 +1,12 @@
 import type { CommandStatus, FailureReason } from "./command.ts";
 import type { HistoryFilter, HistoryStatus } from "./historyApi.ts";
 
+const MS_PER_MINUTE = 60_000;
+
+export const HISTORY_RETENTION_DAYS = 90;
+export const HISTORY_SUMMARY_DAYS = 7;
+export const HISTORY_UNDO_WINDOW_MS = MS_PER_MINUTE;
+
 export const WENT_THROUGH: readonly HistoryStatus[] = ["done", "choice"];
 
 export const DID_NOT_GO_THROUGH: readonly HistoryStatus[] = ["failed", "blocked"];
