@@ -73,9 +73,11 @@ type ListViewInput = {
   manualFailure: boolean;
 };
 
+type ListNotice = "offline" | "couldNotRefresh" | null;
+
 const NO_HISTORY: readonly (BlankKind | null)[] = ["empty", "cleared", "off"];
 
-function noticeOf({ offline, stale, manualFailure }: ListViewInput) {
+function noticeOf({ offline, stale, manualFailure }: ListViewInput): ListNotice {
   if (offline) return "offline";
   return stale && !manualFailure ? "couldNotRefresh" : null;
 }
