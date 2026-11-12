@@ -23,6 +23,8 @@ export const FAILURE_REASONS = [
   "other",
 ] as const;
 export const MAX_APP_NAME_CHARS = 60;
+// A Mac without it closes the session on a command.lookup frame.
+export const COMMAND_LOOKUP_CAPABILITY = "commandLookup";
 
 const commandIdSchema = z.uuid();
 
@@ -61,6 +63,8 @@ export const commandFrameSchemas = [
   }),
   z.object({ type: z.literal("speech.stop") }),
   z.object({ type: z.literal("choice.extend"), choiceId: commandIdSchema }),
+  z.object({ type: z.literal("command.lookup"), commandId: commandIdSchema }),
+  z.object({ type: z.literal("command.unknown"), commandId: commandIdSchema }),
 ] as const;
 
 export type CommandFrame = z.infer<(typeof commandFrameSchemas)[number]>;

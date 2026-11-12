@@ -1,6 +1,7 @@
 export { apiPaths } from "./apiPaths";
 export {
   CHOICE_TTL_MS,
+  COMMAND_LOOKUP_CAPABILITY,
   COMMAND_STATUSES,
   type CommandChoice,
   type CommandFrame,
