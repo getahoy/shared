@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { commandFrameSchemas } from "./command.ts";
 import { deviceDescriptionSchema } from "./device.ts";
-import { lanEndpointSchema } from "./lanEndpoint.ts";
+import { lanEndpointSchema } from "./pairingQr.ts";
 
 export const versionProbeSchema = z.object({ protocolVersion: z.int().positive() });
 
