@@ -1,6 +1,6 @@
 import type { FailureReason, HistoryEntry, HistoryFilter, HistoryPage } from "@getahoy/protocol";
-import { historyCopy } from "./historyCopy";
-import { seconds, timingSegments } from "./historyTimings";
+import { historyCopy } from "./historyCopy.ts";
+import { seconds, timingSegments } from "./historyTimings.ts";
 
 type WhyCopy = Readonly<Record<FailureReason, string>>;
 

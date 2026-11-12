@@ -1,5 +1,5 @@
 import { useState, useTransition } from "react";
-import { type AuthError, authErrorMessage } from "./authErrorMessage";
+import { type AuthError, authErrorMessage } from "./authErrorMessage.ts";
 
 export type AuthResponse = { error: AuthError | null };
 

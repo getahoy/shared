@@ -1,5 +1,5 @@
-import type { ErrorCode } from "../errorCodes";
-import type { ApiError, ApiSuccess } from "./apiEnvelope";
+import type { ErrorCode } from "../errorCodes.ts";
+import type { ApiError, ApiSuccess } from "./apiEnvelope.ts";
 
 const errorStatus: Record<ErrorCode, number> = {
   invalid_input: 400,

@@ -1,4 +1,4 @@
-import { redact } from "./redact";
+import { redact } from "./redact.ts";
 
 type LogLevel = "info" | "warn" | "error";
 

@@ -1,11 +1,11 @@
-export { REQUEST_ID_HEADER } from "./api/apiEnvelope";
-export { ErrorResponse, SuccessResponse } from "./api/apiResponse";
+export { REQUEST_ID_HEADER } from "./api/apiEnvelope.ts";
+export { ErrorResponse, SuccessResponse } from "./api/apiResponse.ts";
 export {
   type RequestError,
   type RequestResult,
   request,
   requestErrorMessage,
-} from "./api/request";
+} from "./api/request.ts";
 export {
   APPEARANCES,
   type Appearance,
@@ -13,11 +13,11 @@ export {
   appearanceSchema,
   type ResolvedTheme,
   resolvedThemeSchema,
-} from "./appearance/appearance";
-export { APP_SCHEME } from "./appScheme";
-export { authCopy } from "./auth/authCopy";
-export { type AuthError, authErrorMessage } from "./auth/authErrorMessage";
-export { credentialFields } from "./auth/credentialFields";
+} from "./appearance/appearance.ts";
+export { APP_SCHEME } from "./appScheme.ts";
+export { authCopy } from "./auth/authCopy.ts";
+export { type AuthError, authErrorMessage } from "./auth/authErrorMessage.ts";
+export { credentialFields } from "./auth/credentialFields.ts";
 export {
   MAXIMUM_PASSWORD_LENGTH,
   MINIMUM_PASSWORD_LENGTH,
@@ -25,29 +25,34 @@ export {
   type SignUpInput,
   signInSchema,
   signUpSchema,
-} from "./auth/credentialsSchema";
-export { socialErrorMessage } from "./auth/socialErrorMessage";
-export { type SocialProviderId, socialProviderCatalog } from "./auth/socialProviderCatalog";
+} from "./auth/credentialsSchema.ts";
+export { socialErrorMessage } from "./auth/socialErrorMessage.ts";
+export { type SocialProviderId, socialProviderCatalog } from "./auth/socialProviderCatalog.ts";
 export {
   type AuthRequestState,
   type AuthResponse,
   useAuthRequest,
-} from "./auth/useAuthRequest";
-export { useCredentialsForm } from "./auth/useCredentialsForm";
-export { type ErrorCode, errorMessages } from "./errorCodes";
-export { historyCopy } from "./history/historyCopy";
-export { dayLabel, type HistorySection, sectionsByDay, timeLabel } from "./history/historyDays";
-export { HISTORY_SEARCH_DELAY_MS } from "./history/historySearch";
-export { reportLines, summaryLine, whyOf } from "./history/historyText";
-export { seconds, type TimingSegment, timingSegments, totalMs } from "./history/historyTimings";
-export { needsRunConfirm } from "./history/runConfirm";
-export { useElapsedOver } from "./hooks/useElapsedOver";
-export { spinnerTiming, useSpinnerVisible } from "./hooks/useSpinnerVisible";
-export { createLogger, type Logger } from "./logging/logger";
+} from "./auth/useAuthRequest.ts";
+export { useCredentialsForm } from "./auth/useCredentialsForm.ts";
+export { type ErrorCode, errorMessages } from "./errorCodes.ts";
+export { historyCopy } from "./history/historyCopy.ts";
+export { dayLabel, type HistorySection, sectionsByDay, timeLabel } from "./history/historyDays.ts";
+export { HISTORY_SEARCH_DELAY_MS } from "./history/historySearch.ts";
+export { reportLines, summaryLine, whyOf } from "./history/historyText.ts";
+export {
+  seconds,
+  type TimingSegment,
+  timingSegments,
+  totalMs,
+} from "./history/historyTimings.ts";
+export { needsRunConfirm } from "./history/runConfirm.ts";
+export { useElapsedOver } from "./hooks/useElapsedOver.ts";
+export { spinnerTiming, useSpinnerVisible } from "./hooks/useSpinnerVisible.ts";
+export { createLogger, type Logger } from "./logging/logger.ts";
 export {
   endedWhen,
   NOTICE_LIFETIME_MS,
   noticeAge,
   noticeShown,
-} from "./pairing/endedNotice";
-export { type ParsedInput, parseInput } from "./parseInput";
+} from "./pairing/endedNotice.ts";
+export { type ParsedInput, parseInput } from "./parseInput.ts";

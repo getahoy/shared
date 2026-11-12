@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { errorCodes } from "../errorCodes";
+import { errorCodes } from "../errorCodes.ts";
 
 export const REQUEST_ID_HEADER = "x-request-id";
 

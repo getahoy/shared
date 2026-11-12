@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { z } from "zod";
-import { parseInput } from "../parseInput";
-import type { AuthRequestState, AuthResponse } from "./useAuthRequest";
+import { parseInput } from "../parseInput.ts";
+import type { AuthRequestState, AuthResponse } from "./useAuthRequest.ts";
 
 type CredentialsFormOptions<Input> = {
   schema: z.ZodType<Input>;

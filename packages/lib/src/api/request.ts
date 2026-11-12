@@ -1,6 +1,11 @@
 import type { z } from "zod";
-import { errorMessages } from "../errorCodes";
-import { type ApiError, apiErrorSchema, apiSuccessSchema, REQUEST_ID_HEADER } from "./apiEnvelope";
+import { errorMessages } from "../errorCodes.ts";
+import {
+  type ApiError,
+  apiErrorSchema,
+  apiSuccessSchema,
+  REQUEST_ID_HEADER,
+} from "./apiEnvelope.ts";
 
 const DEFAULT_TIMEOUT_MS = 15_000;
 

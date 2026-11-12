@@ -1,5 +1,5 @@
 import type { HistoryTimings } from "@getahoy/protocol";
-import { historyCopy } from "./historyCopy";
+import { historyCopy } from "./historyCopy.ts";
 
 const MS_PER_SECOND = 1000;
 

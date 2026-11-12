@@ -1,5 +1,5 @@
 import type { HistoryEntry } from "@getahoy/protocol";
-import { historyCopy } from "./historyCopy";
+import { historyCopy } from "./historyCopy.ts";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const WEEKDAY_WINDOW_DAYS = 6;

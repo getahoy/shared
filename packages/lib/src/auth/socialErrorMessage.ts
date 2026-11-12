@@ -1,4 +1,4 @@
-import { authCopy } from "./authCopy";
+import { authCopy } from "./authCopy.ts";
 
 const messagesByCallbackError: Record<string, string> = {
   account_not_linked: authCopy["error.social.accountExists"],

@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { authCopy } from "./authCopy";
+import { authCopy } from "./authCopy.ts";
 
 export const MINIMUM_PASSWORD_LENGTH = 8;
 export const MAXIMUM_PASSWORD_LENGTH = 128;

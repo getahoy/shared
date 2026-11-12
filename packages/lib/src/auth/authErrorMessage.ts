@@ -1,5 +1,5 @@
-import { type ErrorCode, errorMessages } from "../errorCodes";
-import { authCopy } from "./authCopy";
+import { type ErrorCode, errorMessages } from "../errorCodes.ts";
+import { authCopy } from "./authCopy.ts";
 
 export type AuthError = {
   code?: string | undefined;

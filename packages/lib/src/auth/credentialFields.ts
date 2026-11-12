@@ -1,4 +1,4 @@
-import { authCopy } from "./authCopy";
+import { authCopy } from "./authCopy.ts";
 
 export const credentialFields = {
   name: { name: "name", label: authCopy["field.name"], autoComplete: "name" },
