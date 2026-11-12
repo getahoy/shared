@@ -1,19 +1,36 @@
-import type { HistoryFilter, HistoryPage, HistoryStatus } from "@getahoy/protocol";
+import {
+  HISTORY_RETENTION_DAYS,
+  HISTORY_SUMMARY_DAYS,
+  type HistoryFilter,
+  type HistoryPage,
+  type HistoryStatus,
+} from "@getahoy/protocol";
 
 type SummaryCounts = NonNullable<HistoryPage["summary"]>;
+
+const SUMMARY_WINDOW = `in the last ${HISTORY_SUMMARY_DAYS} days`;
+const KEEPS_HISTORY = `Ahoy keeps a history of what you said and what it did in your account for ${HISTORY_RETENTION_DAYS} days.`;
+const NO_AUDIO = "Speech audio is never stored.";
 
 export const historyCopy = {
   title: "History",
   summary: {
     all: ({ lastSevenDays, didntGoThrough }: SummaryCounts) =>
       didntGoThrough > 0
-        ? `${lastSevenDays} in the last 7 days · ${didntGoThrough} didn’t go through`
-        : `${lastSevenDays} in the last 7 days`,
+        ? `${lastSevenDays} ${SUMMARY_WINDOW} · ${didntGoThrough} didn’t go through`
+        : `${lastSevenDays} ${SUMMARY_WINDOW}`,
     done: ({ wentThrough }: SummaryCounts) =>
-      wentThrough === undefined ? null : `${wentThrough} went through in the last 7 days`,
+      wentThrough === undefined ? null : `${wentThrough} went through ${SUMMARY_WINDOW}`,
     failed: ({ didntGoThrough }: SummaryCounts) =>
-      `${didntGoThrough} didn’t go through in the last 7 days`,
+      `${didntGoThrough} didn’t go through ${SUMMARY_WINDOW}`,
   } satisfies Record<HistoryFilter, (counts: SummaryCounts) => string | null>,
+  keepHistoryDisclosure: (howToChange: string | null) =>
+    [KEEPS_HISTORY, howToChange, NO_AUDIO].filter((part) => part !== null).join(" "),
+  clearBody: "This deletes every entry, on your iPhone and on your Macs. It can’t be undone.",
+  couldNotChange: "Couldn’t change that. Try again.",
+  signedOutBody: "Sign in to see your history.",
+  nothingDoneTitle: "Nothing went through yet.",
+  nothingDoneBody: "",
   searchPlaceholder: "Search what you said",
   searchLabel: "Search history",
   clearSearch: "Clear search",
