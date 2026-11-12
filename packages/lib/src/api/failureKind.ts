@@ -1,5 +1,5 @@
 import type { ErrorCode } from "../errorCodes.ts";
-import type { RequestError } from "./request.ts";
+import type { RequestError, RequestResult } from "./request.ts";
 
 export type FailureKind =
   | "offline"
@@ -53,4 +53,8 @@ export function failureKind(error: RequestError): FailureKind {
       return unhandled;
     }
   }
+}
+
+export function doneOrGone(result: RequestResult<unknown>): boolean {
+  return result.code === "success" || failureKind(result.error) === "notFound";
 }

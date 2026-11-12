@@ -1,5 +1,4 @@
 import type { z } from "zod";
-import { errorMessages } from "../errorCodes.ts";
 import {
   type ApiError,
   apiErrorSchema,
@@ -64,19 +63,4 @@ export async function request<T>(options: RequestOptions<T>): Promise<RequestRes
     return { code: "error", error: { kind: "api", status, requestId, detail: failure.data.error } };
   }
   return { code: "error", error: { kind: "malformed", status, requestId } };
-}
-
-export function requestErrorMessage(error: RequestError): string {
-  switch (error.kind) {
-    case "api":
-      return error.detail.message;
-    case "malformed":
-      return errorMessages.internal;
-    case "network":
-      return errorMessages.transient;
-    default: {
-      const unhandled: never = error;
-      return unhandled;
-    }
-  }
 }

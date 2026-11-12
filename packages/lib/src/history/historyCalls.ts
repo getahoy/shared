@@ -8,7 +8,7 @@ import {
   historyWrittenSchema,
 } from "@getahoy/protocol";
 import type { CallApi } from "../api/apiClient.ts";
-import { reportBody } from "./historyDisplay.ts";
+import { reportNoteBody } from "./historyDisplay.ts";
 
 function listParams({ status, cursor, macKey }: HistoryQuery) {
   return { status, ...(cursor ? { cursor } : {}), ...(macKey ? { macKey } : {}) };
@@ -31,7 +31,7 @@ export function historyCalls(call: CallApi) {
     restore: (id: string) =>
       call({ path: apiPaths.historyRestore(id), method: "POST", schema: changed }),
     report: (id: string, note: string) =>
-      call({ path: apiPaths.historyReport(id), body: reportBody(note), schema: changed }),
+      call({ path: apiPaths.historyReport(id), body: reportNoteBody(note), schema: changed }),
     clear: () => call({ path: apiPaths.history, method: "DELETE", schema: changed }),
     settings: () => call({ path: apiPaths.historySettings, schema: settings }),
     changeSettings: (keepHistory: boolean) =>
@@ -43,5 +43,3 @@ export function historyCalls(call: CallApi) {
       }),
   };
 }
-
-export type HistoryCalls = ReturnType<typeof historyCalls>;

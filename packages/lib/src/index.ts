@@ -1,13 +1,8 @@
 export { type ApiClient, createApiClient } from "./api/apiClient.ts";
 export { REQUEST_ID_HEADER } from "./api/apiEnvelope.ts";
 export { ErrorResponse, SuccessResponse } from "./api/apiResponse.ts";
-export { type FailureKind, failureKind } from "./api/failureKind.ts";
-export {
-  type RequestError,
-  type RequestResult,
-  request,
-  requestErrorMessage,
-} from "./api/request.ts";
+export { doneOrGone, type FailureKind, failureKind } from "./api/failureKind.ts";
+export { type RequestError, type RequestResult, request } from "./api/request.ts";
 export {
   APPEARANCES,
   type Appearance,
@@ -38,42 +33,42 @@ export {
 export { useCredentialsForm } from "./auth/useCredentialsForm.ts";
 export { type ErrorCode, errorMessages } from "./errorCodes.ts";
 export { type EntryView, entryMatches } from "./history/entryMatches.ts";
-export {
-  type BlankKind,
-  blankCopy,
-  blankFor,
-  type ListPhase,
-  type ShownBlank,
-} from "./history/historyBlank.ts";
 export { historyCalls } from "./history/historyCalls.ts";
 export { historyCopy } from "./history/historyCopy.ts";
 export { dayLabel, type HistorySection, sectionsByDay, timeLabel } from "./history/historyDays.ts";
 export {
   canRunAgain,
-  reportBody,
+  needsRunConfirm,
+  reportLines,
   rowDid,
   type StatusTone,
   statusTone,
   timingShare,
   whereLine,
+  whyOf,
 } from "./history/historyDisplay.ts";
 export {
   HISTORY_KEY,
+  HISTORY_SEARCH_DELAY_MS,
   HISTORY_STALE_MS,
   historyKey,
   queryOf,
   withoutEntries,
 } from "./history/historyList.ts";
-export { listView } from "./history/historyListView.ts";
-export { HISTORY_SEARCH_DELAY_MS } from "./history/historySearch.ts";
-export { reportLines, summaryLine, whyOf } from "./history/historyText.ts";
+export {
+  type BlankKind,
+  blankCopy,
+  blankFor,
+  type ListPhase,
+  listView,
+  type ShownBlank,
+} from "./history/historyListState.ts";
 export {
   seconds,
   type TimingSegment,
   timingSegments,
   totalMs,
 } from "./history/historyTimings.ts";
-export { needsRunConfirm } from "./history/runConfirm.ts";
 export { useElapsedOver } from "./hooks/useElapsedOver.ts";
 export { spinnerTiming, useSpinnerVisible } from "./hooks/useSpinnerVisible.ts";
 export { createLogger, type Logger } from "./logging/logger.ts";

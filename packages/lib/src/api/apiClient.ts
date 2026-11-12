@@ -9,7 +9,7 @@ type ApiClientOptions = {
   fetch?: typeof fetch;
 };
 
-export type ApiCall<T> = {
+type ApiCall<T> = {
   path: string;
   schema: z.ZodType<T>;
   method?: "GET" | "POST" | "PATCH" | "DELETE";

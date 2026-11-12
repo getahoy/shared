@@ -1,4 +1,4 @@
-export type NoticeAge =
+type NoticeAge =
   | { kind: "justNow" }
   | { kind: "minutes"; count: number }
   | { kind: "hours"; count: number };
@@ -6,7 +6,7 @@ export type NoticeAge =
 const MS_PER_MINUTE = 60_000;
 const MINUTES_PER_HOUR = 60;
 const HOURS_SHOWN = 24;
-export const NOTICE_LIFETIME_MS = HOURS_SHOWN * MINUTES_PER_HOUR * MS_PER_MINUTE;
+const NOTICE_LIFETIME_MS = HOURS_SHOWN * MINUTES_PER_HOUR * MS_PER_MINUTE;
 
 const endedWhenCopy = {
   justNow: "Just now",
@@ -19,7 +19,7 @@ export function noticeShown(notice: { at: number }, now: number): boolean {
   return now - notice.at < NOTICE_LIFETIME_MS;
 }
 
-export function noticeAge(at: number, now: number): NoticeAge {
+function noticeAge(at: number, now: number): NoticeAge {
   const minutes = Math.floor((now - at) / MS_PER_MINUTE);
   if (minutes < 1) return { kind: "justNow" };
   if (minutes < MINUTES_PER_HOUR) return { kind: "minutes", count: minutes };

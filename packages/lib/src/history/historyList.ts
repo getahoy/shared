@@ -2,6 +2,7 @@ import type { HistoryEntry, HistoryQuery } from "@getahoy/protocol";
 import type { EntryView } from "./entryMatches.ts";
 
 export const HISTORY_STALE_MS = 30_000;
+export const HISTORY_SEARCH_DELAY_MS = 300;
 
 export const HISTORY_KEY = ["history"] as const;
 
