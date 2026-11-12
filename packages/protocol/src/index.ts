@@ -1,3 +1,4 @@
+export { apiPaths } from "./apiPaths";
 export {
   CHOICE_TTL_MS,
   COMMAND_STATUSES,
@@ -87,6 +88,7 @@ export {
   MAX_TYPED_CHARS,
   NAMED_KEYS,
 } from "./interpretApi";
+export { decodeJson, encodeJson } from "./jsonBytes";
 export {
   DESKTOP_CLIENT_ID,
   type PairingClaim,
