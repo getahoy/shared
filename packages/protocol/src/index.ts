@@ -69,6 +69,18 @@ export {
   problemReportRequestSchema,
 } from "./historyApi";
 export {
+  DID_NOT_GO_THROUGH,
+  historyReasonOf,
+  historyStatusOf,
+  statusesShownBy,
+  WENT_THROUGH,
+} from "./historyStatuses";
+export {
+  HISTORY_RETENTION_DAYS,
+  HISTORY_SUMMARY_DAYS,
+  HISTORY_UNDO_WINDOW_MS,
+} from "./historyWindows";
+export {
   CHARACTER_KEYS,
   EMAIL_APPS,
   type EmailApp,
@@ -106,7 +118,12 @@ export {
   pairingUnlinkRequestSchema,
   pairingUnlinkSchema,
 } from "./pairingApi";
-export { type PairingQr, pairingQrSchema } from "./pairingQr";
+export {
+  type PairingQr,
+  pairingQrExpired,
+  pairingQrSchema,
+  readPairingQr,
+} from "./pairingQr";
 export {
   MAX_SPEAK_TEXT_CHARS,
   SPEAK_VOICES,
@@ -122,3 +139,11 @@ export {
   type TranscribeResponse,
   transcribeResponseSchema,
 } from "./speechApi";
+export {
+  PROMPT_LINES,
+  type PromptLine,
+  SENTENCE_PAUSE_SECONDS,
+  SPEECH_SPEED,
+  speechPaceKey,
+  VOICE_PREVIEW_LINE,
+} from "./speechLines";

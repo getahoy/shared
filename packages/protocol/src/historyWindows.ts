@@ -1,0 +1,5 @@
+const MS_PER_MINUTE = 60_000;
+
+export const HISTORY_RETENTION_DAYS = 90;
+export const HISTORY_SUMMARY_DAYS = 7;
+export const HISTORY_UNDO_WINDOW_MS = MS_PER_MINUTE;
