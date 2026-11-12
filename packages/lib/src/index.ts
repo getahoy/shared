@@ -1,9 +1,4 @@
-export {
-  type ApiCall,
-  type ApiClient,
-  type CallApi,
-  createApiClient,
-} from "./api/apiClient.ts";
+export { type ApiClient, createApiClient } from "./api/apiClient.ts";
 export { REQUEST_ID_HEADER } from "./api/apiEnvelope.ts";
 export { ErrorResponse, SuccessResponse } from "./api/apiResponse.ts";
 export { type FailureKind, failureKind } from "./api/failureKind.ts";
@@ -44,14 +39,13 @@ export { useCredentialsForm } from "./auth/useCredentialsForm.ts";
 export { type ErrorCode, errorMessages } from "./errorCodes.ts";
 export { type EntryView, entryMatches } from "./history/entryMatches.ts";
 export {
-  type BlankCopy,
   type BlankKind,
   blankCopy,
   blankFor,
   type ListPhase,
   type ShownBlank,
 } from "./history/historyBlank.ts";
-export { type HistoryCalls, historyCalls } from "./history/historyCalls.ts";
+export { historyCalls } from "./history/historyCalls.ts";
 export { historyCopy } from "./history/historyCopy.ts";
 export { dayLabel, type HistorySection, sectionsByDay, timeLabel } from "./history/historyDays.ts";
 export {
@@ -70,7 +64,7 @@ export {
   queryOf,
   withoutEntries,
 } from "./history/historyList.ts";
-export { type ListNotice, listView } from "./history/historyListView.ts";
+export { listView } from "./history/historyListView.ts";
 export { HISTORY_SEARCH_DELAY_MS } from "./history/historySearch.ts";
 export { reportLines, summaryLine, whyOf } from "./history/historyText.ts";
 export {
@@ -89,12 +83,7 @@ export {
   SLOW_AFTER_MS,
   TOAST_MS,
 } from "./motion/motionTiming.ts";
-export {
-  endedWhen,
-  NOTICE_LIFETIME_MS,
-  noticeAge,
-  noticeShown,
-} from "./pairing/endedNotice.ts";
+export { endedWhen, noticeShown } from "./pairing/endedNotice.ts";
 export { pairingCalls } from "./pairing/pairingCalls.ts";
 export { type ParsedInput, parseInput } from "./parseInput.ts";
 export { parseStored } from "./storage/parseStored.ts";
