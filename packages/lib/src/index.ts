@@ -1,5 +1,12 @@
+export {
+  type ApiCall,
+  type ApiClient,
+  type CallApi,
+  createApiClient,
+} from "./api/apiClient.ts";
 export { REQUEST_ID_HEADER } from "./api/apiEnvelope.ts";
 export { ErrorResponse, SuccessResponse } from "./api/apiResponse.ts";
+export { type FailureKind, failureKind } from "./api/failureKind.ts";
 export {
   type RequestError,
   type RequestResult,
@@ -44,6 +51,7 @@ export {
   type ListPhase,
   type ShownBlank,
 } from "./history/historyBlank.ts";
+export { type HistoryCalls, historyCalls } from "./history/historyCalls.ts";
 export { historyCopy } from "./history/historyCopy.ts";
 export { dayLabel, type HistorySection, sectionsByDay, timeLabel } from "./history/historyDays.ts";
 export {
@@ -81,4 +89,6 @@ export {
   noticeAge,
   noticeShown,
 } from "./pairing/endedNotice.ts";
+export { pairingCalls } from "./pairing/pairingCalls.ts";
 export { type ParsedInput, parseInput } from "./parseInput.ts";
+export { parseStored } from "./storage/parseStored.ts";
